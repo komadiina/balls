@@ -1,0 +1,6 @@
+*.exe
+.vscode/
+.vscode
+*.o
+*.bmp
+*.bat
