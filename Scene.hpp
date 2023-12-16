@@ -66,8 +66,6 @@ private:
         uint16_t x = obj.pos.x - obj.diameter / 2, y = obj.pos.y - obj.diameter / 2;
         Vector2 it = {x, y};
 
-        std::cout << std::format("center {}x{} -> {}x{}\n", obj.pos.x, obj.pos.y, x, y);
-
         Utilities::nonnegative(&x), Utilities::nonnegative(&y);
 
         for (uint16_t y = obj.pos.y - obj.diameter / 2; y < obj.pos.y + obj.diameter && y < height; y++)

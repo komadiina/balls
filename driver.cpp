@@ -10,7 +10,7 @@ int main(int argC, char **argV)
 
     Scene scenery = Scene(width, height, numObjects);
     scenery.drawScene();
-    scenery.showInfo(std::cout, false);
+    // scenery.showInfo(std::cout, false);
 
     return EXIT_SUCCESS;
 }
