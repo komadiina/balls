@@ -1,6 +1,7 @@
 #pragma once
 
 #include "./CircleObj.hpp"
+#include "../../Bitmap/bitmap.h"
 #include <random>
 #include <algorithm>
 
@@ -52,6 +53,26 @@ public:
     static _Type normalize(_Type val, _Type min, _Type max)
     {
         return (val - min) / (max - min);
+    }
+
+    static std::vector<CircleObj> trace(const PixelMatrix &matrix, float defaultDiameter = 20)
+    {
+        std::vector<CircleObj> tracedCircles;
+        uint16_t x = 0, y = 0;
+
+        for (y = 0; y < matrix.size(); ++y)
+            for (x = 0; x < matrix[y].size(); ++x)
+                if (matrix.at(y).at(x) == WHITE)
+                {
+                    Vector2<uint16_t> pos = {x, y};
+                    CircleObj circle = CircleObj(
+                        pos, 0.0f, defaultDiameter / 2.0f + rand() % 20);
+                    circle.setGradient(createRandomColor(), createRandomColor());
+
+                    tracedCircles.push_back(circle);
+                }
+
+        return tracedCircles;
     }
 
 private:

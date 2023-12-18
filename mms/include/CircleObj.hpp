@@ -4,7 +4,7 @@
 #include <iostream>
 #include <format>
 #include "./Vector2.hpp"
-#include "./Bitmap/bitmap.h"
+#include "../../Bitmap/bitmap.h"
 
 uint16_t ID = 1;
 

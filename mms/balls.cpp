@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "./Scene.hpp"
+#include "./include/Scene.hpp"
 
 int main(int argC, char **argV)
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <functional>
-#include "./Bitmap/bitmap.h"
+#include "../../Bitmap/bitmap.h"
 
 const Pixel BLACK = Pixel(0, 0, 0), WHITE = Pixel(255, 255, 255);
 const Pixel RED = Pixel(255, 0, 0), GREEN = Pixel(0, 255, 0), BLUE = Pixel(0, 0, 255);

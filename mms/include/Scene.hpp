@@ -5,18 +5,18 @@
 #include "./BlendModes.hpp"
 #include "./CircleObj.hpp"
 #include "./Utilities.hpp"
-#include "./Bitmap/bitmap.h"
+#include "../../Bitmap/bitmap.h"
 
 class Scene
 {
 public:
     CircleObj *objects;
     PixelMatrix pm;
-    uint8_t maxObj;
+    uint16_t maxObj;
     uint16_t width, height;
 
 public:
-    Scene(uint16_t width, uint16_t height, uint8_t maxObjects = 255)
+    Scene(uint16_t width, uint16_t height, uint16_t maxObjects = 255, bool demo = false)
         : width(width), height(height), maxObj(maxObjects)
     {
         // Blank (black) scene
@@ -28,11 +28,19 @@ public:
         }
 
         objects = new CircleObj[maxObjects];
-        for (int i = 0; i < maxObjects; i++)
-        {
-            objects[i] = CircleObj(Utilities::createRandomCircle(width, height));
-            objects[i].setGradient(Utilities::createRandomColor(), Utilities::createRandomColor());
-        }
+
+        if (demo)
+            for (int i = 0; i < maxObjects; i++)
+            {
+                objects[i] = CircleObj(Utilities::createRandomCircle(width, height));
+                objects[i].setGradient(Utilities::createRandomColor(), Utilities::createRandomColor());
+            }
+    }
+
+    void setObjects(CircleObj *objects)
+    {
+        delete[] this->objects;
+        this->objects = objects;
     }
 
     void drawScene(std::string outputFile = "output.bmp")

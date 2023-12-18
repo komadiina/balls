@@ -56,6 +56,16 @@ public:
             clamp(a.blue + b.blue));
     }
 
+    friend bool operator==(const Pixel &a, const Pixel &b)
+    {
+        return a.red == b.red && a.green == b.green & a.blue == b.blue;
+    }
+
+    friend bool operator!=(const Pixel &a, const Pixel &b)
+    {
+        return !(a == b);
+    }
+
     friend std::ostream &operator<<(std::ostream &os, const Pixel &obj)
     {
         return os << std::format("({}, {}, {})", obj.red, obj.green, obj.blue);
